@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 
 import GBox from 'grommet/components/Box';
 
-const Home = () => (
+const CreateMarketplace = () => (
   <div>
-    Home
+   CreateMarketplace 
   </div>
 );
 
-export default Home;
+export default CreateMarketplace;

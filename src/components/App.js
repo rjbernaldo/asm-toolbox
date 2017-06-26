@@ -7,6 +7,8 @@ import GSplit from 'grommet/components/Split';
 
 import Sidebar from './Sidebar';
 import Home from './Home';
+import CreateMarketplace from './CreateMarketplace';
+import CreateAdmin from './CreateAdmin';
 
 const App = () => (
   <GApp centered={false}>
@@ -17,11 +19,12 @@ const App = () => (
       <GBox pad="small">
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route exact path="/create-marketplace" component={CreateMarketplace} />
+          <Route exact path="/create-admin" component={CreateAdmin} />
         </Switch>
       </GBox>
     </GSplit>
   </GApp>
 );
-          // <Route path="/create-marketplace" component={CreateMarketplace} />
 
 export default App;
