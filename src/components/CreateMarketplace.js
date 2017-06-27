@@ -12,6 +12,7 @@ import GTile from 'grommet/components/Tile';
 import GParagraph from 'grommet/components/Paragraph';
 import GButton from 'grommet/components/Button';
 import GLabel from 'grommet/components/Label';
+import GColumns from 'grommet/components/Columns';
 
 const CreateMarketplace = () => (
   <GBox flex="grow">
@@ -22,49 +23,51 @@ const CreateMarketplace = () => (
         </GHeading>
       </GHeader>
     </GBox>
-    <GForm>
-      <GBox pad={{ horizontal: 'medium', vertical: 'small' }}>
-        <GFormFields>
-          <GFormField label="Credentials">
-            <GTextInput placeHolder="email" />
-            <GTextInput placeHolder="password" />
-            <GTextInput placeHolder="mobile" />
-          </GFormField>
-        </GFormFields>
-      </GBox>
-      <GBox pad={{ horizontal: 'medium', vertical: 'small' }}>
-        <GFormFields>
-          <GFormField label="Company">
-            <GTextInput placeHolder="name" />
-            <GTextInput placeHolder="legal name" />
-            <GTextInput placeHolder="tax number" />
-          </GFormField>
-        </GFormFields>
-      </GBox>
-      <GBox pad={{ horizontal: 'medium', vertical: 'small' }}>
-        <GFormFields>
-          <GFormField label="Address">
-            <GTextInput placeHolder="addressline" />
-            <GTextInput placeHolder="country (select)" />
-            <GTextInput placeHolder="city" />
-            <GTextInput placeHolder="state" />
-            <GTextInput placeHolder="postcode" />
-          </GFormField>
-        </GFormFields>
-      </GBox>
-      <GBox pad={{ horizontal: 'medium', vertical: 'small' }}>
-        <GFormFields>
-          <GFormField label="Gateway Details">
-            <GTextInput placeHolder="merchant category" />
-            <GTextInput placeHolder="merchant identity string" />
-            <GTextInput placeHolder="billing descriptor" />
-            <GTextInput placeHolder="max transaction amount" />
-          </GFormField>
-        </GFormFields>
-      </GBox>
-      <GBox pad={{ horizontal: 'medium', vertical: 'small' }}>
-        <GButton label={<GLabel>Submit</GLabel>} style={{ maxWidth: '100%' }} onClick={() => { console.log('test'); }} />
-      </GBox>
+    <GForm style={{ width: '100%' }}>
+      <GColumns>
+        <GBox pad={{ horizontal: 'medium', vertical: 'small' }}>
+          <GFormFields>
+            <GFormField label="Credentials">
+              <GTextInput placeHolder="email" />
+              <GTextInput placeHolder="password" />
+              <GTextInput placeHolder="mobile" />
+            </GFormField>
+          </GFormFields>
+        </GBox>
+        <GBox pad={{ horizontal: 'medium', vertical: 'small' }}>
+          <GFormFields>
+            <GFormField label="Company">
+              <GTextInput placeHolder="name" />
+              <GTextInput placeHolder="legal name" />
+              <GTextInput placeHolder="tax number" />
+            </GFormField>
+          </GFormFields>
+        </GBox>
+        <GBox pad={{ horizontal: 'medium', vertical: 'small' }}>
+          <GFormFields>
+            <GFormField label="Address">
+              <GTextInput placeHolder="addressline" />
+              <GTextInput placeHolder="country (select)" />
+              <GTextInput placeHolder="city" />
+              <GTextInput placeHolder="state" />
+              <GTextInput placeHolder="postcode" />
+            </GFormField>
+          </GFormFields>
+        </GBox>
+        <GBox pad={{ horizontal: 'medium', vertical: 'small' }}>
+          <GFormFields>
+            <GFormField label="Gateway Details">
+              <GTextInput placeHolder="merchant category" />
+              <GTextInput placeHolder="merchant identity string" />
+              <GTextInput placeHolder="billing descriptor" />
+              <GTextInput placeHolder="max transaction amount" />
+            </GFormField>
+          </GFormFields>
+        </GBox>
+        <GBox pad={{ horizontal: 'medium', vertical: 'small' }}>
+          <GButton label="Submit" plain={true} style={{ maxWidth: '100%' }} onClick={() => { console.log('test'); }} />
+        </GBox>
+      </GColumns>
     </GForm>
   </GBox>
 );
