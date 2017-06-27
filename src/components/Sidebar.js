@@ -20,6 +20,7 @@ const Header = () => (
     <GMenu inline={true} direction="column" primary={true} size="small">
       <GAnchor label="Create Marketplace" path="/create-marketplace" />
       <GAnchor label="Create Admin" path="/create-admin" />
+      <GAnchor label="Mark as old" path="/create-admin" />
     </GMenu>
   </GBox>
 );
