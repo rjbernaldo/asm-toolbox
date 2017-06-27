@@ -13,6 +13,7 @@ import GParagraph from 'grommet/components/Paragraph';
 import GButton from 'grommet/components/Button';
 import GLabel from 'grommet/components/Label';
 import GColumns from 'grommet/components/Columns';
+import GCli from 'grommet/components/icons/base/cli';
 
 const CreateMarketplace = () => (
   <GBox flex="grow">
@@ -24,7 +25,7 @@ const CreateMarketplace = () => (
       </GHeader>
     </GBox>
     <GForm style={{ width: '100%' }}>
-      <GColumns>
+      <GColumns maxCount={2} size="large">
         <GBox pad={{ horizontal: 'medium', vertical: 'small' }}>
           <GFormFields>
             <GFormField label="Credentials">
@@ -65,7 +66,7 @@ const CreateMarketplace = () => (
           </GFormFields>
         </GBox>
         <GBox pad={{ horizontal: 'medium', vertical: 'small' }}>
-          <GButton label="Submit" plain={true} style={{ maxWidth: '100%' }} onClick={() => { console.log('test'); }} />
+          <GButton icon={<GCli />} label={<GLabel>Submit</GLabel>} plain={true} onClick={() => { console.log('test'); }} />
         </GBox>
       </GColumns>
     </GForm>
