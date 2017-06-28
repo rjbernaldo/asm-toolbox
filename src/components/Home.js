@@ -11,20 +11,18 @@ import GCheckBox from 'grommet/components/CheckBox';
 import Credentials from './Credentials';
 
 const Home = () => (
-  <div>
-    <GBox flex="grow">
-      <GBox pad="medium" style={{ paddingTop: '0px', paddingBottom: '0px' }}>
-        <GHeading strong={true} tag="h2" style={{ paddingTop: '12px' }}>ASM Toolbox</GHeading>
-        <GParagraph>
-          Praesent id metus massa, ut blandit odio. Proin quis tortor orci.
-          Etiam at risus et justo dignissim congue.
-          Donec congue lacinia dui, a porttitor lectus condimentum laoreet.
-        </GParagraph>
-        <GAnchor href="https://github.com/rjbernaldo/asm-toolbox" label="https://github.com/rjbernaldo/asm-toolbox" />
-        <Credentials />
-      </GBox>
+  <GBox flex="grow">
+    <GBox pad="medium" style={{ paddingTop: '0px', paddingBottom: '0px' }}>
+      <GHeading strong={true} tag="h2" style={{ paddingTop: '12px' }}>ASM Toolbox</GHeading>
+      <GParagraph>
+        Praesent id metus massa, ut blandit odio. Proin quis tortor orci.
+        Etiam at risus et justo dignissim congue.
+        Donec congue lacinia dui, a porttitor lectus condimentum laoreet.
+      </GParagraph>
+      <GAnchor href="https://github.com/rjbernaldo/asm-toolbox" label="https://github.com/rjbernaldo/asm-toolbox" />
+      <Credentials />
     </GBox>
-  </div>
+  </GBox>
 );
 
 export default Home;
