@@ -16,61 +16,59 @@ import GColumns from 'grommet/components/Columns';
 import GCli from 'grommet/components/icons/base/cli';
 
 const CreateMarketplace = () => (
-  <GBox flex="grow">
-    <GBox pad="medium" style={{ paddingTop: '0px', paddingBottom: '0px' }}>
-      <GHeader>
-        <GHeading>
-          Create Marketplace
-        </GHeading>
-      </GHeader>
+  <div>
+    <GBox flex="grow">
+      <GBox pad="medium" style={{ paddingTop: '0px', paddingBottom: '0px' }}>
+        <GHeading strong={true} tag="h2" style={{ paddingTop: '12px' }}>Create Marketplace</GHeading>
+      </GBox>
+      <GForm style={{ width: '100%' }}>
+        <GColumns maxCount={2} size="large">
+          <GBox pad={{ horizontal: 'medium', vertical: 'small' }}>
+            <GFormFields>
+              <GFormField label="Credentials">
+                <GTextInput placeHolder="email" />
+                <GTextInput placeHolder="password" />
+                <GTextInput placeHolder="mobile" />
+              </GFormField>
+            </GFormFields>
+          </GBox>
+          <GBox pad={{ horizontal: 'medium', vertical: 'small' }}>
+            <GFormFields>
+              <GFormField label="Company">
+                <GTextInput placeHolder="name" />
+                <GTextInput placeHolder="legal name" />
+                <GTextInput placeHolder="tax number" />
+              </GFormField>
+            </GFormFields>
+          </GBox>
+          <GBox pad={{ horizontal: 'medium', vertical: 'small' }}>
+            <GFormFields>
+              <GFormField label="Address">
+                <GTextInput placeHolder="addressline" />
+                <GTextInput placeHolder="country (select)" />
+                <GTextInput placeHolder="city" />
+                <GTextInput placeHolder="state" />
+                <GTextInput placeHolder="postcode" />
+              </GFormField>
+            </GFormFields>
+          </GBox>
+          <GBox pad={{ horizontal: 'medium', vertical: 'small' }}>
+            <GFormFields>
+              <GFormField label="Gateway Details">
+                <GTextInput placeHolder="merchant category" />
+                <GTextInput placeHolder="merchant identity string" />
+                <GTextInput placeHolder="billing descriptor" />
+                <GTextInput placeHolder="max transaction amount" />
+              </GFormField>
+            </GFormFields>
+          </GBox>
+          <GBox pad={{ horizontal: 'medium', vertical: 'small' }}>
+            <GButton icon={<GCli />} label={<GLabel>Submit</GLabel>} plain={true} onClick={() => { console.log('test'); }} />
+          </GBox>
+        </GColumns>
+      </GForm>
     </GBox>
-    <GForm style={{ width: '100%' }}>
-      <GColumns maxCount={2} size="large">
-        <GBox pad={{ horizontal: 'medium', vertical: 'small' }}>
-          <GFormFields>
-            <GFormField label="Credentials">
-              <GTextInput placeHolder="email" />
-              <GTextInput placeHolder="password" />
-              <GTextInput placeHolder="mobile" />
-            </GFormField>
-          </GFormFields>
-        </GBox>
-        <GBox pad={{ horizontal: 'medium', vertical: 'small' }}>
-          <GFormFields>
-            <GFormField label="Company">
-              <GTextInput placeHolder="name" />
-              <GTextInput placeHolder="legal name" />
-              <GTextInput placeHolder="tax number" />
-            </GFormField>
-          </GFormFields>
-        </GBox>
-        <GBox pad={{ horizontal: 'medium', vertical: 'small' }}>
-          <GFormFields>
-            <GFormField label="Address">
-              <GTextInput placeHolder="addressline" />
-              <GTextInput placeHolder="country (select)" />
-              <GTextInput placeHolder="city" />
-              <GTextInput placeHolder="state" />
-              <GTextInput placeHolder="postcode" />
-            </GFormField>
-          </GFormFields>
-        </GBox>
-        <GBox pad={{ horizontal: 'medium', vertical: 'small' }}>
-          <GFormFields>
-            <GFormField label="Gateway Details">
-              <GTextInput placeHolder="merchant category" />
-              <GTextInput placeHolder="merchant identity string" />
-              <GTextInput placeHolder="billing descriptor" />
-              <GTextInput placeHolder="max transaction amount" />
-            </GFormField>
-          </GFormFields>
-        </GBox>
-        <GBox pad={{ horizontal: 'medium', vertical: 'small' }}>
-          <GButton icon={<GCli />} label={<GLabel>Submit</GLabel>} plain={true} onClick={() => { console.log('test'); }} />
-        </GBox>
-      </GColumns>
-    </GForm>
-  </GBox>
+  </div>
 );
 
 export default CreateMarketplace;
