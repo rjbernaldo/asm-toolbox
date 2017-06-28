@@ -16,7 +16,7 @@
   "bugs": {
     "url": "https://github.com/rjbernaldo/asm-toolbox/issues"
   },
-  "homepage": "https://github.com/rjbernaldo/asm-toolbox#readme",
+  "homepage": "https://github.com/rjbernaldo/asm-toolbox",
   "devDependencies": {
     "babel-core": "^6.25.0",
     "babel-jest": "^20.0.3",
