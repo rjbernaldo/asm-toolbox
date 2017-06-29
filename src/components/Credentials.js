@@ -18,7 +18,8 @@ class Credentials extends Component {
       password: '',
     };
     this.handleChange = this.handleChange.bind(this);
-    this.handleClick = this.handleClick.bind(this);
+    this.handleLogin = this.handleLogin.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
   }
 
   handleChange(e) {
@@ -29,23 +30,27 @@ class Credentials extends Component {
     this.setState({ [name]: value });
   }
 
-  handleClick() {
-    const loggedIn = this.props.email !== undefined && this.props.password !== undefined;
-    if (loggedIn) {
-      this.props.logout();
-    } else {
-      this.props.login(this.state);
-    }
+  handleLogin(e) {
+    e.preventDefault();
+
+    this.props.login(this.state);
+  }
+
+  handleLogout(e) {
+    e.preventDefault();
+
+    this.setState({ email: '', password: '' });
+    this.props.logout();
   }
 
   render() {
-    const loggedIn = this.props.email !== undefined && this.props.password !== undefined;
+    const loggedIn = this.props.email !== '' && this.props.password !== '';
     const backgroundColor = loggedIn ? { backgroundColor: '#ddffd9' } : {};
 
     return (
       <GBox pad={{ vertical: 'medium' }}>
         <h3>Credentials</h3>
-        <GForm>
+        <GForm onSubmit={loggedIn ? this.handleLogout : this.handleLogin}>
           <GFormFields>
             <GFormField label="Credentials" style={backgroundColor}>
               <GTextInput
@@ -68,10 +73,11 @@ class Credentials extends Component {
           </GFormFields>
           <GBox pad={{ vertical: 'small' }}>
             <GButton
+              type="submit"
               icon={<GCli />}
               plain={true}
               label={<GLabel>{ loggedIn ? 'Log out' : 'Log in' }</GLabel>}
-              onClick={this.handleClick}
+              onClick={loggedIn ? this.handleLogout : this.handleLogin}
             />
           </GBox>
         </GForm>
