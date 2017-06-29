@@ -8,7 +8,7 @@ import GAccordion from 'grommet/components/Accordion';
 import GAccordionPanel from 'grommet/components/AccordionPanel';
 import GCheckBox from 'grommet/components/CheckBox';
 
-import Credentials from './Credentials';
+import Credentials from '../containers/Credentials';
 
 const Home = () => (
   <GBox flex="grow">

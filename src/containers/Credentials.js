@@ -1,8 +1,23 @@
 import { connect } from 'react-redux';
 import Credentials from '../components/Credentials';
+import { login, logout } from '../actions/credentials';
 
 const mapStateToProps = (state) => {
-  user: state.user
+  return {
+    email: state.credentials.email,
+    password: state.credentials.password,
+  };
 };
 
-export default connect(mapStateToProps)(Credentials);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    login: (credentials) => {
+      dispatch(login(credentials));
+    },
+    logout: () => {
+      dispatch(logout());
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Credentials);

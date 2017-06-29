@@ -9,41 +9,75 @@ import GButton from 'grommet/components/Button';
 import GLabel from 'grommet/components/Label';
 import GCli from 'grommet/components/icons/base/cli';
 
-const Credentials = (user) => {
-  const Info = () => (
-    <GForm>
-      <GFormFields>
-        <GFormField label="Credentials">
-          <GTextInput value="email@email.com" disabled={true} />
-          <GTextInput value="password" disabled={true} />
-        </GFormField>
-      </GFormFields>
-      <GBox pad={{ vertical: 'small' }}>
-        <GButton icon={<GCli />} label={<GLabel>Log out</GLabel>} plain={true} onClick={() => { console.log('test'); }} />
-      </GBox>
-    </GForm>
-  );
+class Credentials extends Component {
+  constructor(props) {
+    super(props);
+    this.props = props;
+    this.state = {
+      email: '',
+      password: '',
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+  }
 
-  const LoginForm = () => (
-    <GForm>
-      <GFormFields>
-        <GFormField label="Credentials">
-          <GTextInput placeHolder="email" />
-          <GTextInput placeHolder="password" />
-        </GFormField>
-      </GFormFields>
-      <GBox pad={{ vertical: 'small' }}>
-        <GButton icon={<GCli />} label={<GLabel>Log in</GLabel>} plain={true} onClick={() => { console.log('test'); }} />
-      </GBox>
-    </GForm>
-  );
+  handleChange(e) {
+    const target = e.target;
+    const value = target.value;
+    const name = target.name;
 
-  return (
-    <GBox pad={{ vertical: 'medium' }}>
-      <h3>Credentials</h3>
-      { user.username ? <Info /> : <LoginForm /> }
-    </GBox>
-  );
+    this.setState({ [name]: value });
+  }
+
+  handleClick() {
+    const loggedIn = this.props.email !== undefined && this.props.password !== undefined;
+    if (loggedIn) {
+      this.props.logout();
+    } else {
+      this.props.login(this.state);
+    }
+  }
+
+  render() {
+    const loggedIn = this.props.email !== undefined && this.props.password !== undefined;
+    const backgroundColor = loggedIn ? { backgroundColor: '#ddffd9' } : {};
+
+    return (
+      <GBox pad={{ vertical: 'medium' }}>
+        <h3>Credentials</h3>
+        <GForm>
+          <GFormFields>
+            <GFormField label="Credentials" style={backgroundColor}>
+              <GTextInput
+                type="text"
+                disabled={loggedIn}
+                name="email"
+                placeHolder="email"
+                value={this.state.email}
+                onDOMChange={this.handleChange}
+              />
+              <GTextInput
+                type="text"
+                disabled={loggedIn}
+                name="password"
+                placeHolder="password"
+                value={this.state.password}
+                onDOMChange={this.handleChange}
+              />
+            </GFormField>
+          </GFormFields>
+          <GBox pad={{ vertical: 'small' }}>
+            <GButton
+              icon={<GCli />}
+              plain={true}
+              label={<GLabel>{ loggedIn ? 'Log out' : 'Log in' }</GLabel>}
+              onClick={this.handleClick}
+            />
+          </GBox>
+        </GForm>
+      </GBox>
+    );
+  }
 }
 
 export default Credentials;
